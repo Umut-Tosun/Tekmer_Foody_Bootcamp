@@ -1,0 +1,51 @@
+﻿@model List<FoodyTekmerEntityLayer.Concrete.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+<div class="container">
+   
+    <h3>Kategori Listesi</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>İsim</th>
+            <th>Durum</th>
+            <th>Durum Değiştir</th>
+            <th>
+                Düzenle
+            </th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CategoryName</td>
+                @if (item.status)
+                {
+
+                    <td>  <span class="badge bg-success">Aktif</span> </td>
+                    <td><a href="/Category/ChangeStatus/@item.Id" class="btn btn-outline-danger">Pasif Yap</a></td>
+                }
+
+                else
+                {
+                    <td> <span class="badge bg-danger">Pasif</span> </td>
+                    <td><a href="/Category/ChangeStatus/@item.Id" class="btn btn-outline-success">Aktif Yap</a></td>
+                }
+
+
+                <td><a href="/Category/UpdateCategory/@item.Id" class="btn btn-outline-primary">Düzenle</a></td>
+            </tr>
+        }
+    </table>
+
+    <a href="/Category/AddCategory" class="btn btn-outline-success">Yeni Kategori Ekle</a>
+</div>
+
+

@@ -1,0 +1,18 @@
+﻿@model FoodyTekmerEntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    
+    <h3>Kategori Ekleme Sayfası</h3>
+    <form method="post">
+   
+    <br /> <br />
+    <label>Kategori Adı : </label>
+    <input type="text" asp-for="CategoryName" maxlength="50" class="form-control"/>
+    <br />
+    <button type="submit" class="btn btn-info" >Kategori Ekle</button>
+    </form>
+</div>

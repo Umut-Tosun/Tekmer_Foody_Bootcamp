@@ -1,0 +1,51 @@
+﻿@model FoodyTekmerEntityLayer.Concrete.Product
+@{
+    ViewData["Title"] = "AddProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+
+    <h3>Yeni Ürün Ekle</h3>
+    <form method="post" enctype="multipart/form-data">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group">
+                <label for="surName">Ürün Ad</label>
+                <input type="text" class="form-control" asp-for="ProductName" id="surName" placeholder="Ürün Adı Giriniz">
+            </div>
+        </div>
+        <br />
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group">
+                <label for="surName">Ürün Fiyat</label>
+                <input type="number" class="form-control" asp-for="NewPrice" id="surName">
+            </div>
+        </div>
+        <br />
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group">
+                <label for="surName">Ürün Durum</label>
+                <select class="form-select" asp-for="status" aria-label="Default select example">
+                    <option value="true" selected>Aktif</option>
+                    <option value="false">Pasif</option>
+
+                </select>
+            </div>
+        </div>
+        
+        <br />
+        <img src="@Model.ImageUrl" id="output" name="ImageUrl" style="height:120px" alt="Maxwell Admin">
+        <br /> <br />
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group">
+                <label for="website">Görsel Değiştir</label>
+
+                <input type="file" class="form-control" id="FileUrl" name="FileUrl" accept="image/*" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+            </div>
+        </div>
+        <br />
+        <button class="btn btn-success" type="submit">Yeni Ürün Ekle</button>
+    </form>
+</div>
+
+
